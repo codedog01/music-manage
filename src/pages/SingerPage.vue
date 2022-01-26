@@ -317,6 +317,9 @@ export default {
 </script>
 
 <style scoped>
+  div{
+    background-color: rgba(255, 255, 255,.1);
+  }
 .handle-box {
   margin-bottom: 20px;
 }

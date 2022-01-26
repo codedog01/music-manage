@@ -3,8 +3,8 @@
     <el-row :gutter="20" class="mgb20">
       <el-col :span="6">
         <el-card shadow="hover" :body-style="{padding: '0px'}">
-          <div class="grid-content grid-con-1">
-            <div class="grid-cont-right">
+          <div class="grid-content grid-con-1" style="background-color : rgba(192,44,56,.3);">
+            <div class="grid-cont-right" >
               <div class="grid-num">{{userCount}}</div>
               <div>用户总数</div>
             </div>
@@ -13,7 +13,7 @@
       </el-col>
       <el-col :span="6">
         <el-card shadow="hover" :body-style="{padding: '0px'}">
-          <div class="grid-content grid-con-2">
+          <div class="grid-content grid-con-2" style="background-color : rgba(0,0,0,.4);">
             <div class="grid-cont-right">
               <div class="grid-num">{{songCount}}</div>
               <div>歌曲总数</div>
@@ -23,7 +23,7 @@
       </el-col>
       <el-col :span="6">
         <el-card shadow="hover" :body-style="{padding: '0px'}">
-          <div class="grid-content grid-con-3">
+          <div class="grid-content grid-con-3" style="background-color : rgba(0,0,0,.4);">
             <div class="grid-cont-right">
               <div class="grid-num">{{singerCount}}</div>
               <div>歌手数量</div>
@@ -33,7 +33,7 @@
       </el-col>
       <el-col :span="6">
         <el-card shadow="hover" :body-style="{padding: '0px'}">
-          <div class="grid-content grid-con-4">
+          <div class="grid-content grid-con-4" style="background-color : rgba(0,0,0,.4);">
             <div class="grid-cont-right">
               <div class="grid-num">{{songListCount}}</div>
               <div>歌单数量</div>
@@ -45,13 +45,13 @@
     <el-row :gutter="20">
       <el-col :span="12">
         <h3 style="margin-bottom: 20px">本周用户听歌平均时长</h3>
-        <div class="cav-info" style="background-color : rgba(0,0,0,.4);">
+        <div class="cav-info" >
           <ve-line :data="userUsing" :theme="options" ></ve-line>
         </div>
       </el-col>
       <el-col :span="12">
         <h3 style="margin-bottom: 20px">歌曲类型分布</h3>
-        <div class="cav-info" style="background-color : rgba(0,0,0,.4);" >
+        <div class="cav-info">
           <ve-histogram :data="songStyle" :theme="options3"></ve-histogram>
         </div>
       </el-col>
@@ -114,25 +114,12 @@ export default {
         ]
       },
       options: {
-        axisLine: {
-          show: true,
-          textStyle: {
-            color: ['#FFF']
-          }
-        },
-        color: ['#FFF'],
-        axisLabel: {
-          show: true,
-          textStyle: {
-            color: ['#FFF']
-          }
-        }
+
       },
       options1: {
-        color: ['#1E90FF', '#7B68EE']
+        color: ['#1E90FF', '#ee3f4d']
       },
       options2: {
-        color: ['#FEED78'],
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -147,7 +134,7 @@ export default {
         }
       },
       options3: {
-        color: ['#FFF'],
+        color: ['#93b5cf'],
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -259,7 +246,7 @@ export default {
     flex: 1;
     text-align: center;
     font-size: 14px;
-    color: #999;
+    color: black;
   }
 
   .grid-num {

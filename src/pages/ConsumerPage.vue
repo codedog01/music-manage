@@ -1,27 +1,29 @@
 <template>
-  <div class="table">
-    <div class="container">
-      <div class="handle-box">
+  <div class="table" style="  background-color: rgba(255, 255, 255,.1);">
+    <div class="container" style="  background-color: rgba(255, 255, 255,.1);">
+      <div class="handle-box" style="  background-color: rgba(255, 255, 255,.1);">
         <el-button type="primary" size="mini" class="handle-del mr10" @click="delAll">批量删除</el-button>
         <el-input v-model="select_word" size="mini" placeholder="筛选相关用户" class="handle-input mr10"></el-input>
         <el-button type="primary" size="mini" @click="centerDialogVisible = true">添加新用户</el-button>
       </div>
-      <el-table :data="data" border size="mini" style="width: 100%" ref="multipleTable" height="550px" @selection-change="handleSelectionChange">
-        <el-table-column type="selection" width="40" align="center"></el-table-column>
-        <el-table-column label="歌手图片" width="102" align="center">
-          <template slot-scope="scope">
+      <el-table  id="myTable" :data="data" border size="mini" style="width: 100%;background-color: rgba(255, 255, 255,.1);" ref="multipleTable" height="550px" @selection-change="handleSelectionChange">
+        <el-table-column type="selection" width="40" align="center" style="background-color: rgba(255, 255, 255,.1);"></el-table-column>
+        <el-table-column label="歌手图片" width="102" align="center" style="background-color: rgba(255, 255, 255,.1);">
+          <template slot-scope="scope" style="background-color: rgba(255, 255, 255,.1);">
             <img :src="getUrl(scope.row.avator)" alt="" style="width: 80px;"/>
             <el-upload
               class="upload-demo"
               :action="uploadUrl(scope.row.id)"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
-              :before-upload="beforeAvatarUpload">
+              :before-upload="beforeAvatarUpload"
+            style="background-color: rgba(255, 255, 255,.1);"
+            >
               <el-button size="mini">更新图片</el-button>
             </el-upload>
           </template>
         </el-table-column>
-        <el-table-column label="用户名" prop="username" width="80" align="center"></el-table-column>
+        <el-table-column style="" label="用户名" prop="username" width="80" align="center"></el-table-column>
         <el-table-column label="密码" prop="password" width="80" align="center"></el-table-column>
         <el-table-column label="性别" width="50" align="center">
             <template slot-scope="scope">
@@ -42,8 +44,8 @@
                 <el-button size="mini" @click="getCollect(data[scope.$index].id)">收藏</el-button>
             </template>
         </el-table-column>
-        <el-table-column label="操作" width="150" align="center">
-            <template slot-scope="scope">
+        <el-table-column label="操作" width="150" align="center" style="background-color: rgba(255, 255, 255,.1);">
+            <template slot-scope="scope" style="background-color: rgba(255, 255, 255,.1);">
                 <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
                 <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">删除</el-button>
             </template>
@@ -459,7 +461,12 @@ export default {
 </script>
 
 <style scoped>
+
+  div{
+    background-color: rgba(255, 255, 255,.1);
+  }
 .handle-box {
+  /*background-color: rgba(255, 255, 255,.1);*/
   margin-bottom: 20px;
   font-size: 12px;
 }
