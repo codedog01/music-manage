@@ -4,15 +4,16 @@
     <div class="ms-login">
       <el-form
         ref="ruleForm"
-        class="demo-ruleForm"
+        class="demo-ruleForm myForm"
         :model="ruleForm"
         :rules="rules"
       >
-        <el-form-item prop="username">
-          <el-input v-model="ruleForm.username" placeholder="username"></el-input>
+        <el-form-item prop="username" id="username">
+          <el-input class="myInput" v-model="ruleForm.username" placeholder="username"></el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input
+            class="myInput"
             type="password"
             placeholder="password"
             v-model="ruleForm.password"
@@ -20,7 +21,7 @@
           ></el-input>
         </el-form-item>
         <div class="login-btn">
-          <el-button type="primary" @click="submitForm">登录</el-button>
+          <el-button type="primary" @click="submitForm">Login</el-button>
         </div>
         <p style="font-size:12px;line-height:30px;color:#999;">Tips : 用户名和密码要写数据库里的。</p>
       </el-form>
@@ -31,7 +32,6 @@
 <script>
 import {mixin} from '../mixins'
 import { HttpManager } from '../api/index'
-
 export default {
   mixins: [mixin],
   data: function () {
@@ -71,14 +71,43 @@ export default {
 </script>
 
 <style scoped>
+  #username:focus{
+    width: 110%;
+  }
 .login-wrap {
-  position: relative;
-  background: url('../assets/img/background.jpg');
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
+  animation: 12s bgChange infinite ;
+}
+
+@keyframes bgChange {
+  0%{
+    position: relative;
+    background: url('../assets/img/1.jpg') fixed center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+  33%{
+    position: relative;
+    background: url('../assets/img/2.jpg') fixed center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+  }
+  66%{
+    position: relative;
+    background: url('../assets/img/3.jpg') fixed center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+  100%{
+    position: relative;
+    background: url('../assets/img/1.jpg') fixed center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .ms-title {
