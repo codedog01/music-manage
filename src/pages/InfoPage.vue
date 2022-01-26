@@ -44,28 +44,28 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-        <h3 style="margin-bottom: 20px">用户性别比例</h3>
-        <div class="cav-info" style="background-color: white">
-          <ve-pie :data="userSex" :theme="options"></ve-pie>
+        <h3 style="margin-bottom: 20px">本周用户听歌平均时长</h3>
+        <div class="cav-info" style="background-color : rgba(0,0,0,.4);">
+          <ve-line :data="userUsing" :theme="options" ></ve-line>
         </div>
       </el-col>
       <el-col :span="12">
         <h3 style="margin-bottom: 20px">歌曲类型分布</h3>
-        <div class="cav-info" style="background-color: white">
+        <div class="cav-info" style="background-color : rgba(0,0,0,.4);" >
           <ve-histogram :data="songStyle" :theme="options3"></ve-histogram>
         </div>
       </el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-        <h3 style="margin: 20px 0">歌手性别比例</h3>
-        <div class="cav-info" style="background-color: white">
-          <ve-pie :data="singerSex" :theme="options1"></ve-pie>
+        <h3 style="margin: 20px 0">用户性别比例</h3>
+        <div class="cav-info" >
+          <ve-pie :data="userSex" :theme="options1"></ve-pie>
         </div>
       </el-col>
       <el-col :span="12">
         <h3 style="margin: 20px 0">歌手国籍分布</h3>
-        <div class="cav-info" style="background-color: white">
+        <div class="cav-info" >
           <ve-histogram :data="country" :theme="options2"></ve-histogram>
         </div>
       </el-col>
@@ -82,14 +82,18 @@ export default {
   data () {
     return {
       user: [],
-      userSex: {
-        columns: ['性别', '总数'],
+      userUsing: {
+        columns: ['日期', '听歌时长/小时'],
         rows: [
-          { '性别': '男', '总数': 0 },
-          { '性别': '女', '总数': 0 }
-        ]
+          {'日期': '周一', '听歌时长/小时': 1},
+          {'日期': '周二', '听歌时长/小时': 3},
+          {'日期': '周三', '听歌时长/小时': 2},
+          {'日期': '周四', '听歌时长/小时': 4},
+          {'日期': '周五', '听歌时长/小时': 5},
+          {'日期': '周六', '听歌时长/小时': 6},
+          {'日期': '周日', '听歌时长/小时': 8}]
       },
-      singerSex: {
+      userSex: {
         columns: ['性别', '总数'],
         rows: [
           { '性别': '男', '总数': 0 },
@@ -110,7 +114,19 @@ export default {
         ]
       },
       options: {
-        color: ['#87CEFA', '#FFC0CB']
+        axisLine: {
+          show: true,
+          textStyle: {
+            color: ['#FFF']
+          }
+        },
+        color: ['#FFF'],
+        axisLabel: {
+          show: true,
+          textStyle: {
+            color: ['#FFF']
+          }
+        }
       },
       options1: {
         color: ['#1E90FF', '#7B68EE']
@@ -131,7 +147,7 @@ export default {
         }
       },
       options3: {
-        color: ['#FD8A61'],
+        color: ['#FFF'],
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -204,8 +220,6 @@ export default {
     getSinger () {
       HttpManager.getAllSinger().then(res => {
         this.singerCount = res.length
-        this.singerSex.rows[0]['总数'] = this.setSex(1, res)
-        this.singerSex.rows[1]['总数'] = this.setSex(0, res)
         for (let item of res) {
           this.getCountry(item.location)
         }
@@ -256,5 +270,12 @@ export default {
   .cav-info {
     border-radius: 6px;
     overflow: hidden;
+  }
+  .el-card{
+    background-color: rgba(255,255,255,.1);
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.3);
+  }
+  .cav-info {
+    background-color : rgba(255,255,255,.4);
   }
 </style>

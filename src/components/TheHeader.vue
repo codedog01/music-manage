@@ -62,11 +62,11 @@ export default {
   z-index: 100;
   box-sizing: border-box;
   width: 100%;
-  height: 70px;
+  height: 69px;
   font-size: 22px;
-  color: #B0B3B2;
-  background: #1A1B1C;
-  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.3);
+  color: #000;
+  background-color: rgba(0, 0, 0,.2);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.3);
 }
 
 .collapse-btn {
@@ -79,10 +79,11 @@ export default {
 .header .logo {
   float: left;
   width: 250px;
-  font-family: 26px;
   line-height: 70px;
 }
-
+.header .logo:hover{
+  cursor: pointer;
+}
 .header-right {
   float: right;
   padding-right: 50px;

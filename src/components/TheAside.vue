@@ -4,11 +4,11 @@
       class="sidebar-el-menu"
       :default-active="onRoutes"
       :collapse="collapse"
-      background-color="#242526"
-      text-color="#B0B3B2"
-      active-text-color="#ffffff"
+      text-color="#FFF"
+      active-text-color="#F40"
       unique-opened
       router
+      style="  background-color: rgba(255,255,255,.1);"
     >
       <template v-for="item in items">
           <template>
@@ -70,7 +70,8 @@ export default {
 .sidebar {
   display: block;
   position: absolute;
-  background-color: #334256;
+  background-color: rgba(255,255,255,.1);
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.3);
   left: 0;
   top: 70px;
   bottom: 0;

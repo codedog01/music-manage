@@ -8,22 +8,18 @@
         :model="ruleForm"
         :rules="rules"
       >
-        <el-form-item prop="username" id="username">
-          <el-input class="myInput" v-model="ruleForm.username" placeholder="username"></el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-          <el-input
+          <input  prop="username" id="username" style=" background: rgba(45,45,45,.15)"  class="myInput" v-model="ruleForm.username" placeholder="username"></input>
+          <input
+            prop="password"
             class="myInput"
             type="password"
             placeholder="password"
             v-model="ruleForm.password"
             @keyup.enter.native="submitForm('ruleForm')"
-          ></el-input>
-        </el-form-item>
-        <div class="login-btn">
-          <el-button type="primary" @click="submitForm">Login</el-button>
-        </div>
-        <p style="font-size:12px;line-height:30px;color:#999;">Tips : 用户名和密码要写数据库里的。</p>
+          ></input>
+        <el-button class="myBtn" type="primary" @click="submitForm">Login</el-button>
+
+<!--        <p style="font-size:12px;line-height:30px;color:#999;">Tips : 用户名和密码要写数据库里的。</p>-->
       </el-form>
     </div>
   </div>
@@ -70,75 +66,136 @@ export default {
 }
 </script>
 
-<style scoped>
-  #username:focus{
-    width: 110%;
-  }
-.login-wrap {
-  animation: 12s bgChange infinite ;
-}
+<style>
 
-@keyframes bgChange {
-  0%{
-    position: relative;
-    background: url('../assets/img/1.jpg') fixed center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
+  .login-wrap {
+    animation: 12s bgChange infinite ;
   }
-  33%{
-    position: relative;
-    background: url('../assets/img/2.jpg') fixed center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
+  @keyframes bgChange {
+    0%{
+      position: relative;
+      background: url('../assets/img/1.jpg') fixed center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+    33%{
+      position: relative;
+      background: url('../assets/img/2.jpg') fixed center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
 
+    }
+    66%{
+      position: relative;
+      background: url('../assets/img/3.jpg') fixed center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+    100%{
+      position: relative;
+      background: url('../assets/img/1.jpg') fixed center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
-  66%{
-    position: relative;
-    background: url('../assets/img/3.jpg') fixed center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-  }
-  100%{
-    position: relative;
-    background: url('../assets/img/1.jpg') fixed center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-  }
-}
 
-.ms-title {
-  position: absolute;
-  top: 50%;
+  .ms-title {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -230px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .ms-login {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    width: 300px;
+    height: 160px;
+    margin: -150px 0 0 -190px;
+    padding: 40px;
+    border-radius: 5px;
+  }
+
+  .myInput{
+    color: rgba(255,255,255,.75);
+    padding: 0;
+    width: 90%;
+    margin-top: 15px;
+    background: rgba(45,45,45,.15);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,.15);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    transition: all .2s;
+    text-align: center;
+    height: 50px;
+  }
+
+.myInput:focus{
+  color: turquoise;
+  outline: none;
   width: 100%;
-  margin-top: -230px;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 600;
-  color: #fff;
+  -moz-box-shadow:
+    0 2px 3px 0 rgba(0,0,0,.1) inset,
+    0 2px 7px 0 rgba(0,0,0,.2);
+  -webkit-box-shadow:
+    0 2px 3px 0 rgba(0,0,0,.1) inset,
+    0 2px 7px 0 rgba(0,0,0,.2);
+  box-shadow:
+    0 2px 3px 0 rgba(0,0,0,.1) inset,
+    0 2px 7px 0 rgba(0,0,0,.2);
 }
 
-.ms-login {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 300px;
-  height: 160px;
-  margin: -150px 0 0 -190px;
-  padding: 40px;
-  border-radius: 5px;
-  background: #fff;
+  .myInput{
+
 }
 
-.login-btn {
-  text-align: center;
-}
+  .myBtn:hover{
+    background-color: rgba(255,255,255,.75);
+    color: rgb(18,181,130);
+  }
 
-.login-btn button {
-  width: 100%;
-  height: 36px;
-}
+  .myBtn{
+    background: rgba(255,255,255,.55);
+    cursor: pointer;
+    width: 90%;
+    height: 44px;
+    margin-top: 25px;
+    padding: 0;
+    border: 0;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow:
+      0 15px 30px 0 rgba(255,255,255,.25) inset,
+      0 2px 7px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow:
+      0 15px 30px 0 rgba(255,255,255,.25) inset,
+      0 2px 7px 0 rgba(0,0,0,.2);
+    box-shadow:
+      0 15px 30px 0 rgba(255,255,255,.25) inset,
+      0 2px 7px 0 rgba(0,0,0,.2);
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(18,181,130);
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    transition: all .2s;
+  }
 </style>

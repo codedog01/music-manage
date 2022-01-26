@@ -1,5 +1,5 @@
 <template>
-  <div class="song-audio">
+  <div class="song-audio" style="background: url('../assets/img/bmg/4.png')">
     <audio
       id="player"
       controls="controls"
