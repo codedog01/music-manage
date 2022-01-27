@@ -13,8 +13,8 @@
         <el-input v-model="select_word" size="mini" placeholder="筛选关键词" class="handle-input mr10"></el-input>
         <el-button type="primary" size="mini" @click="centerDialogVisible = true">添加歌曲</el-button>
       </div>
-      <el-table :data="data" size="mini" border style="width: 100%" ref="multipleTable" height="550px" @selection-change="handleSelectionChange">
-        <el-table-column type="selection" width="40"></el-table-column>
+      <el-table :data="data" size="mini" border style="width: 100%" ref="multipleTable" height="600px" @selection-change="handleSelectionChange">
+        <el-Paginationtable-column type="selection" width="40"></el-Paginationtable-column>
         <el-table-column label="歌手图片" width="110" align="center">
           <template slot-scope="scope">
             <div style="width: 80px; height: 80px; overflow: hidden">

@@ -6,7 +6,7 @@
         <el-input v-model="select_word" size="mini" placeholder="筛选关键词" class="handle-input mr10"></el-input>
         <el-button type="primary" size="mini" @click="centerDialogVisible = true">添加歌单</el-button>
       </div>
-      <el-table :data="data" border size="mini" style="width: 100%" height="550px" ref="multipleTable" @selection-change="handleSelectionChange">
+      <el-table :data="data" class="myTable" border size="mini" style="width: 100%" height="600px" ref="multipleTable" @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="40"></el-table-column>
         <el-table-column label="歌单图片" width="100" align="center">
           <template slot-scope="scope">
@@ -146,7 +146,7 @@ export default {
         introduction: '',
         style: ''
       },
-      pageSize: 5, // 页数
+      pageSize: 4, // 页数
       currentPage: 1, // 当前页
       idx: -1
     }
@@ -273,6 +273,11 @@ export default {
 </script>
 
 <style scoped>
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: #2c3e50;
+  }
   div{
     background-color: rgba(255, 255, 255,.1);
   }

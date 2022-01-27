@@ -72,7 +72,7 @@
         <el-form-item label="密码" prop="password" size="mini">
           <el-input type="password" placeholder="密码" v-model="registerForm.password"></el-input>
         </el-form-item>
-        <el-form-item label="性别" size="mini">
+        <el-form-item label="性别" prop="sex" size="mini">
           <el-radio-group v-model="registerForm.sex">
             <el-radio :label="0">女</el-radio>
             <el-radio :label="1">男</el-radio>
@@ -112,8 +112,8 @@
           <el-input v-model="form.password"></el-input>
         </el-form-item>
         <el-form-item label="性别" size="mini">
-          <el-radio-group v-model="form.sex">
-            <el-radio :label="0">女</el-radio>
+          <el-radio-group v-model="form.sex" >
+            <el-radio  :label="0">女</el-radio>
             <el-radio :label="1">男</el-radio>
           </el-radio-group>
         </el-form-item>
@@ -274,16 +274,16 @@ export default {
       }],
       rules: {
         username: [
-          { required: true, trigger: 'blur' }
+          { required: true, trigger: 'blur', message: '用户名必填' }
         ],
         password: [
-          { required: true, trigger: 'blur' }
+          { required: true, trigger: 'blur', message: '密码必填' }
         ],
         sex: [
-          { required: true, message: '请选择性别', trigger: 'change' }
+          { required: true, message: '请选择性别' }
         ],
         phoneNum: [
-          { essage: '请选择日期', trigger: 'blur' }
+          { message: '请选择日期', trigger: 'blur' }
         ],
         email: [
           { message: '请输入邮箱地址', trigger: 'blur' },
@@ -371,7 +371,7 @@ export default {
     },
     // 添加用户
     addPeople () {
-      let d = this.registerForm.birth
+      let d = this.registerForm.birth ? this.registerForm.birth : new Date();
       let datetime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
       let params = new URLSearchParams()
       params.append('username', this.registerForm.username)
@@ -394,6 +394,7 @@ export default {
           }
         })
         .catch(err => {
+          this.notify(err, 'error')
           console.log(err)
         })
       this.centerDialogVisible = false
@@ -461,7 +462,11 @@ export default {
 </script>
 
 <style scoped>
-
+  *::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background-color: #2c3e50;
+  }
   div{
     background-color: rgba(255, 255, 255,.1);
   }

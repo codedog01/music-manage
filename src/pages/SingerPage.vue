@@ -6,7 +6,7 @@
         <el-input v-model="select_word" class="handle-input mr10" size="mini" placeholder="筛选关键词"></el-input>
         <el-button type="primary" size="mini" @click="centerDialogVisible = true">添加歌手</el-button>
       </div>
-      <el-table ref="multipleTable" size="mini" border style="width: 100%" height="550px" :data="data" @selection-change="handleSelectionChange">
+      <el-table ref="multipleTable" size="mini" border style="width: 100%" height="600px" :data="data" @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="40"></el-table-column>
         <el-table-column label="歌手图片" width="110" align="center">
           <template slot-scope="scope">
@@ -147,8 +147,8 @@
 </template>
 
 <script>
-import { mixin } from '../mixins'
-import { HttpManager } from '../api/index'
+import {mixin} from '../mixins'
+import {HttpManager} from '../api/index'
 
 export default {
   name: 'singer-page',
@@ -180,7 +180,7 @@ export default {
         location: '',
         introduction: ''
       },
-      pageSize: 5, // 页数
+      pageSize: 4, // 页数
       currentPage: 1, // 当前页
       idx: -1
     }
@@ -317,6 +317,11 @@ export default {
 </script>
 
 <style scoped>
+  *::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: #2c3e50;
+  }
   div{
     background-color: rgba(255, 255, 255,.1);
   }

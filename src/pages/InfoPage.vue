@@ -13,7 +13,7 @@
       </el-col>
       <el-col :span="6">
         <el-card shadow="hover" :body-style="{padding: '0px'}">
-          <div class="grid-content grid-con-2" style="background-color : rgba(0,0,0,.4);">
+          <div class="grid-content grid-con-2" style="background-color : rgba(204,255,0,.4);">
             <div class="grid-cont-right">
               <div class="grid-num">{{songCount}}</div>
               <div>歌曲总数</div>
@@ -23,7 +23,7 @@
       </el-col>
       <el-col :span="6">
         <el-card shadow="hover" :body-style="{padding: '0px'}">
-          <div class="grid-content grid-con-3" style="background-color : rgba(0,0,0,.4);">
+          <div class="grid-content grid-con-3" style="background-color : rgba(102,204,255,.4);">
             <div class="grid-cont-right">
               <div class="grid-num">{{singerCount}}</div>
               <div>歌手数量</div>
@@ -33,7 +33,7 @@
       </el-col>
       <el-col :span="6">
         <el-card shadow="hover" :body-style="{padding: '0px'}">
-          <div class="grid-content grid-con-4" style="background-color : rgba(0,0,0,.4);">
+          <div class="grid-content grid-con-4" style="background-color : rgba(204,204,255,.4);">
             <div class="grid-cont-right">
               <div class="grid-num">{{songListCount}}</div>
               <div>歌单数量</div>
