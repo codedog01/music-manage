@@ -8,9 +8,11 @@
       </div>
       <el-table  id="myTable" :data="data" border size="mini" style="width: 100%;background-color: rgba(255, 255, 255,.1);" ref="multipleTable" height="550px" @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="40" align="center" style="background-color: rgba(255, 255, 255,.1);"></el-table-column>
-        <el-table-column label="歌手图片" width="102" align="center" style="background-color: rgba(255, 255, 255,.1);">
+        <el-table-column label="用户头像" width="102"  align="center" style="background-color: rgba(255, 255, 255,.1);overflow: hidden">
           <template slot-scope="scope" style="background-color: rgba(255, 255, 255,.1);">
-            <img :src="getUrl(scope.row.avator)" alt="" style="width: 80px;"/>
+           <div style="width: 80px; height: 80px; overflow: hidden">
+             <img :src="getUrl(scope.row.avator)" alt="" style="width: 80px"/>
+           </div>
             <el-upload
               class="upload-demo"
               :action="uploadUrl(scope.row.id)"
@@ -371,7 +373,7 @@ export default {
     },
     // 添加用户
     addPeople () {
-      let d = this.registerForm.birth ? this.registerForm.birth : new Date();
+      let d = this.registerForm.birth ? this.registerForm.birth : new Date()
       let datetime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
       let params = new URLSearchParams()
       params.append('username', this.registerForm.username)
@@ -383,6 +385,7 @@ export default {
       params.append('introduction', this.registerForm.introduction)
       params.append('location', this.registerForm.location)
       params.append('avator', '/img/user.jpg')
+      console.log(params)
       HttpManager.setUser(params)
         .then(res => {
           if (res.code === 1) {
@@ -393,9 +396,8 @@ export default {
             this.notify('添加失败', 'error')
           }
         })
-        .catch(err => {
-          this.notify(err, 'error')
-          console.log(err)
+        .catch(() => {
+          this.notify('添加失败', 'error')
         })
       this.centerDialogVisible = false
     },
